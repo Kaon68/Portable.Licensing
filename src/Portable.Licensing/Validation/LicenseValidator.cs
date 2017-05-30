@@ -1,4 +1,4 @@
-﻿﻿//
+﻿//
 // Copyright © 2012 - 2013 Nauck IT KG     http://www.nauck-it.de
 //
 // Author:
@@ -49,5 +49,19 @@ namespace Portable.Licensing.Validation
         /// will be returned to the application when the <see cref="ILicenseValidator"/> fails.
         /// </summary>
         public IValidationFailure FailureResult { get; set; }
+
+        /// <summary>
+        /// Gets the validation chain.
+        /// </summary>
+        public IValidationChain ValidationChain { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LicenseValidator" /> class.
+        /// </summary>
+        /// <param name="chain">The chain.</param>
+        public LicenseValidator(IValidationChain chain)
+        {
+            this.ValidationChain = chain;
+        }
     }
 }

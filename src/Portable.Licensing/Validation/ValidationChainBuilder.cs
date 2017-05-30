@@ -1,4 +1,4 @@
-﻿﻿//
+﻿//
 // Copyright © 2012 - 2013 Nauck IT KG     http://www.nauck-it.de
 //
 // Author:
@@ -42,7 +42,7 @@ namespace Portable.Licensing.Validation
 
         public ILicenseValidator StartValidatorChain()
         {
-            return currentValidatorChain = new LicenseValidator();
+            return currentValidatorChain = new LicenseValidator(this);
         }
 
         public void CompleteValidatorChain()
@@ -79,9 +79,9 @@ namespace Portable.Licensing.Validation
                 if (!validator.Validate(license))
                     yield return validator.FailureResult
                                  ?? new GeneralValidationFailure
-                                        {
-                                            Message = "License validation failed!"
-                                        };
+                                 {
+                                     Message = "License validation failed!"
+                                 };
             }
         }
     }

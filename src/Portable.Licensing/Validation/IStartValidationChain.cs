@@ -1,4 +1,4 @@
-﻿﻿//
+﻿//
 // Copyright © 2012 - 2013 Nauck IT KG     http://www.nauck-it.de
 //
 // Author:
@@ -31,5 +31,10 @@ namespace Portable.Licensing.Validation
     /// </summary>
     public interface IStartValidationChain : IFluentInterface
     {
+        /// <summary>
+        /// Starts the <see cref="ILicenseValidator" /> chain.
+        /// </summary>
+        /// <returns>License validator.</returns>
+        ILicenseValidator StartValidatorChain();
     }
 }
